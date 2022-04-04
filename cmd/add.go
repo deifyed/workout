@@ -2,11 +2,10 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/deifyed/workout/pkg/config"
 	"github.com/deifyed/workout/pkg/data"
 	"github.com/spf13/afero"
 	"github.com/spf13/cobra"
-	"os"
-	"path"
 	"time"
 )
 
@@ -15,12 +14,10 @@ var addCmd = &cobra.Command{
 	Short: "Add workout data.",
 	Args:  cobra.ExactArgs(2),
 	RunE: func(cmd *cobra.Command, args []string) error {
-		userHomeDir, err := os.UserHomeDir()
+		dbPath, err := config.GetDatabasePath()
 		if err != nil {
-			return fmt.Errorf("acquiring home directory: %w", err)
+			return fmt.Errorf("acquiring database path: %w", err)
 		}
-
-		dbPath := path.Join(userHomeDir, "life", "Notes", "notes", "training", "data.csv")
 
 		dataClient := data.NewClient(&afero.Afero{Fs: afero.NewOsFs()}, dbPath)
 
