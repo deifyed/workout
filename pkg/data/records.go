@@ -54,7 +54,11 @@ func toRecords(header []string, w map[string]map[string]string) ([][]string, err
 	result = append(result, header)
 
 	for date, workouts := range w {
-		entry := make([]string, len(workouts)+1)
+		entry := make([]string, len(header))
+
+		for i := 0; i < len(entry); i++ {
+			entry[i] = "0"
+		}
 
 		entry[0] = date
 

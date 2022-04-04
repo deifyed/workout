@@ -56,6 +56,31 @@ func TestDataClient_Insert(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "Should support multiple workout types on multiple days",
+			withWorkouts: []data.Workout{
+				{
+					Date:        time.Date(2022, time.November, 10, 0, 0, 0, 0, time.UTC),
+					Type:        "pushups",
+					Repetitions: "3",
+				},
+				{
+					Date:        time.Date(2022, time.November, 10, 0, 0, 0, 0, time.UTC),
+					Type:        "situps",
+					Repetitions: "15",
+				},
+				{
+					Date:        time.Date(2022, time.November, 11, 0, 0, 0, 0, time.UTC),
+					Type:        "pushups",
+					Repetitions: "3",
+				},
+				{
+					Date:        time.Date(2022, time.November, 11, 0, 0, 0, 0, time.UTC),
+					Type:        "situps",
+					Repetitions: "15",
+				},
+			},
+		},
 	}
 
 	for _, tc := range testCases {

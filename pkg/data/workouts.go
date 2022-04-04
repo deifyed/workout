@@ -7,7 +7,7 @@ func (receiver *workoutManager) Add(workout Workout) error {
 		receiver.workouts[date] = make(map[string]string)
 	}
 
-	if _, ok := receiver.workouts[date][workout.Type]; ok {
+	if _, ok := receiver.workouts[date][workout.Type]; ok && receiver.workouts[date][workout.Type] != "0" {
 		return errAlreadyExists
 	}
 
