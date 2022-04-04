@@ -16,11 +16,6 @@ func (receiver DataClient) Insert(workout Workout) error {
 		_ = f.Close()
 	}()
 
-	_, err = f.Seek(0, 0)
-	if err != nil {
-		return fmt.Errorf("seeking before reading workouts: %w", err)
-	}
-
 	header, workouts, err := getWorkouts(f)
 	if err != nil {
 		return fmt.Errorf("acquiring records: %w", err)

@@ -28,10 +28,11 @@ func fromRecords(records [][]string) ([]string, map[string]map[string]string) {
 
 	header := records[0]
 
-	for _, record := range records[1:] {
-		date := record[0]
+	for _, entry := range records[1:] {
+		date := entry[0]
+		workouts[date] = make(map[string]string)
 
-		for index, repetitions := range record[1:] {
+		for index, repetitions := range entry[1:] {
 			workoutType := header[index+1]
 
 			workouts[date][workoutType] = repetitions
