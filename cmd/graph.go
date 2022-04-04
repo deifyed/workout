@@ -8,7 +8,7 @@ import (
 
 var graphCmd = &cobra.Command{
 	Use:   "graph",
-	Short: "Show a graph of workouts",
+	Short: "Show a graph of workouts.",
 	Args:  cobra.ExactArgs(0),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		err := plot.Open("/home/deifyed/life/Notes/notes/training/data.csv")

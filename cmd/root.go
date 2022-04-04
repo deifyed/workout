@@ -8,7 +8,7 @@ import (
 
 var rootCmd = &cobra.Command{
 	Use:   "workout",
-	Short: "Workout is a simple tool to track workouts",
+	Short: "Workout is a simple tool to track workouts and visualize progress",
 }
 
 func Execute() {

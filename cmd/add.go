@@ -11,8 +11,8 @@ import (
 )
 
 var addCmd = &cobra.Command{
-	Use:   "add",
-	Short: "Add workout data",
+	Use:   "add [workout type] [repetitions]",
+	Short: "Add workout data.",
 	Args:  cobra.ExactArgs(2),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userHomeDir, err := os.UserHomeDir()
